@@ -1,0 +1,12 @@
+{
+  "publish_at": "2026-10-27T18:30:00+01:00",
+  "pillar": "AI",
+  "caption": "Three AI tools that quietly gave me back ten hours a week. Not hype, just the ones I actually open every morning.\n\nWhich one are you trying first? Tell me below.\n\nSave this for your next slow Sunday reset.\n\n#aitools #productivity #solopreneur #womeninbusiness #aicreator",
+  "slides": [
+    {"type": "cover", "kicker": "AI · Productivity", "title": "3 AI tools that gave me back 10 hours a week", "subtitle": "No hype. Just the ones I actually use."},
+    {"type": "text", "number": "01", "heading": "A thinking partner", "body": "I brain-dump my week into an AI assistant every Sunday. It turns the chaos into a calm, prioritised plan in five minutes."},
+    {"type": "text", "number": "02", "heading": "Meeting notes on autopilot", "body": "A note-taker joins my calls, writes the summary and the action points. I just show up and listen."},
+    {"type": "quote", "quote": "Work smarter, so your life can feel softer.", "author": "Arielle"},
+    {"type": "cta", "title": "Save this for later", "body": "Follow for calm, luxurious ways to work less and live more."}
+  ]
+}
