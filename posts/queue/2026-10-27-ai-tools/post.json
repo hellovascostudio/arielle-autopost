@@ -1,0 +1,40 @@
+{
+  "publish_at": "2026-10-27T12:30:00+01:00",
+  "pillar": "AI",
+  "caption": "AI didn't make me work more. It made me work less.\n\nThree ways I use AI every single week, no tech skills needed. Swipe through and steal what you like.\n\nWhich one are you trying first?\n\n#aitools #productivity #solopreneur #womeninbusiness #worksmarter #aiforbusiness\n\n✦ AI-generated creator",
+  "slides": [
+    {
+      "type": "photo",
+      "image": "assets/photos/cafe-laptop-grey.jpg",
+      "title": "3 ways AI gives me back hours every week"
+    },
+    {
+      "type": "text",
+      "number": "01",
+      "heading": "A Sunday brain-dump",
+      "body": "I type everything on my mind into an AI assistant and ask it to turn the chaos into a calm, prioritised plan for the week."
+    },
+    {
+      "type": "text",
+      "number": "02",
+      "heading": "First drafts, never blank pages",
+      "body": "Emails, captions, proposals. I let AI write the rough version, then I make it sound like me."
+    },
+    {
+      "type": "text",
+      "number": "03",
+      "heading": "Meeting notes on autopilot",
+      "body": "An AI note-taker writes the summary and action points, so I can actually listen."
+    },
+    {
+      "type": "quote",
+      "quote": "Work smarter, so your life can feel softer.",
+      "author": "Arielle"
+    },
+    {
+      "type": "cta",
+      "title": "Save this for later",
+      "body": "Follow for calm, practical ways to work less and live more."
+    }
+  ]
+}
