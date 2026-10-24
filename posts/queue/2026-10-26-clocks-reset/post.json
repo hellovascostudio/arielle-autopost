@@ -1,0 +1,35 @@
+{
+  "publish_at": "2026-10-26T18:30:00+01:00",
+  "pillar": "Productivity",
+  "caption": "The clocks went back this weekend, and I'm treating that extra hour like a gift.\n\nDarker evenings are the perfect excuse to slow down and reset. Here's my one-hour autumn reset, step by step.\n\nWhat would you do with one extra hour this week?\n\n#autumnreset #productivity #slowliving #selfcare #routine #amsterdamlife\n\n✦ AI-generated creator",
+  "slides": [
+    {
+      "type": "photo",
+      "image": "assets/photos/coffee-morning.jpg",
+      "title": "My one-hour autumn reset"
+    },
+    {
+      "type": "text",
+      "number": "01",
+      "heading": "Clear one surface",
+      "body": "Not the whole house. Just your desk or your nightstand. A calm space makes a calm mind."
+    },
+    {
+      "type": "text",
+      "number": "02",
+      "heading": "Look at your week",
+      "body": "Write down the three things that truly matter. Everything else is a bonus."
+    },
+    {
+      "type": "text",
+      "number": "03",
+      "heading": "Set an evening cut-off",
+      "body": "Pick a time your laptop closes. Darker evenings are made for rest, not for inboxes."
+    },
+    {
+      "type": "cta",
+      "title": "Save this for Sunday",
+      "body": "Your future self will thank you."
+    }
+  ]
+}

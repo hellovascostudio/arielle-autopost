@@ -1,0 +1,42 @@
+{
+  "publish_at": "2026-10-30T18:30:00+01:00",
+  "pillar": "Business",
+  "caption": "Forget ghosts. These are the things that really scare a solopreneur. 👻\n\nThe good news: every single one has a simple fix. Swipe for both.\n\nWhich one hits a little too close to home?\n\n#halloween #solopreneur #smallbusiness #womeninbusiness #freelancelife #businesstips\n\n✦ AI-generated creator",
+  "slides": [
+    {
+      "type": "cover",
+      "kicker": "Business · Halloween",
+      "title": "4 things scarier than Halloween",
+      "subtitle": "(for anyone running a business)"
+    },
+    {
+      "type": "text",
+      "number": "01",
+      "heading": "An unpaid invoice",
+      "body": "The fix: send invoices the day the work is done, with a clear due date and a friendly reminder after seven days."
+    },
+    {
+      "type": "text",
+      "number": "02",
+      "heading": "No savings buffer",
+      "body": "The fix: move a fixed percentage of every payment to a separate account before you spend anything."
+    },
+    {
+      "type": "text",
+      "number": "03",
+      "heading": "Saying yes to everything",
+      "body": "The fix: decide what your ideal client looks like, and let the rest go."
+    },
+    {
+      "type": "text",
+      "number": "04",
+      "heading": "Doing it all alone",
+      "body": "The fix: automate one repetitive task this month. Start small."
+    },
+    {
+      "type": "cta",
+      "title": "Happy Halloween",
+      "body": "Save this and fix one thing this week. 🤍"
+    }
+  ]
+}
