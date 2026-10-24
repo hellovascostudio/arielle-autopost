@@ -115,7 +115,7 @@ def slide_text(s, draw):
     y = draw_lines(draw, lines, fnt, lh, MARGIN, y, C["text"]) + 36
     draw.line([(MARGIN, y), (MARGIN + 80, y)], fill=C["accent"], width=2)
     y += 50
-    fnt, lines, lh, _ = block(draw, s.get("body", ""), "sans", 38, W - 2 * MARGIN, H - y - 200, spacing=1.45)
+    fnt, lines, lh, _ = block(draw, s.get("body", ""), "sans", 42, W - 2 * MARGIN, H - y - 200, spacing=1.45)
     draw_lines(draw, lines, fnt, lh, MARGIN, y, C["text"])
 
 
@@ -144,18 +144,21 @@ def slide_photo(s, img, draw):
     if s.get("title"):
         shade = Image.new("L", (W, H), 0)
         sd = ImageDraw.Draw(shade)
-        for i in range(500):  # soft gradient at the bottom for legibility
-            sd.line([(0, H - 500 + i), (W, H - 500 + i)], fill=int(170 * i / 500))
+        for i in range(620):  # soft gradient at the bottom for legibility
+            sd.line([(0, H - 620 + i), (W, H - 620 + i)], fill=int(205 * (i / 620) ** 1.3))
         img.paste(Image.new("RGB", (W, H), (20, 16, 14)), (0, 0), shade)
-        fnt, lines, lh, h = block(draw, s["title"], "serif", 84, W - 2 * MARGIN, 300, spacing=1.05)
-        draw_lines(draw, lines, fnt, lh, MARGIN, H - 170 - h, C["background"])
-    return True
+        fnt, lines, lh, h = block(draw, s["title"], "serif", 96, W - 2 * MARGIN, 330, spacing=1.05)
+        draw_lines(draw, lines, fnt, lh, MARGIN, H - 175 - h, C["background"])
+        return True
+    return None  # bare photo: no text, no frame
 
 
 def render_post(folder):
     folder = Path(folder)
     post = json.loads((folder / "post.json").read_text(encoding="utf-8"))
-    slides = post["slides"]
+    # fonts have no emoji glyphs: strip them from slide text (captions keep theirs)
+    clean = lambda v: "".join(ch for ch in v if ord(ch) < 0x2190).strip() if isinstance(v, str) else v
+    slides = [{k: (v if k == "image" else clean(v)) for k, v in s.items()} for s in post["slides"]]
     out = []
     for i, s in enumerate(slides, 1):
         img = Image.new("RGB", (W, H), C["background"])
@@ -172,7 +175,8 @@ def render_post(folder):
             dark = slide_photo(s, img, draw)
         else:
             slide_text(s, draw)
-        chrome(img, draw, i, len(slides), dark=dark)
+        if dark is not None:
+            chrome(img, draw, i, len(slides), dark=dark)
         path = folder / f"{i:02d}.jpg"
         img.save(path, "JPEG", quality=92, optimize=True)
         out.append(path)
