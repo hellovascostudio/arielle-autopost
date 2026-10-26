@@ -8,6 +8,7 @@ Env:
     RAW_BASE         public base URL for repo files, e.g.
                      https://raw.githubusercontent.com/hellovascostudio/arielle-autopost/main
     DRY_RUN=1        validate and print only, publish nothing
+    POSTIZ_API_KEY   optional; when set, posts with a "tiktok" block also go to TikTok (see scripts/tiktok.py)
 
 Usage:
     python scripts/publish.py           # publish everything that is due
@@ -23,6 +24,8 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
+import tiktok
+
 ROOT = Path(__file__).resolve().parent.parent
 QUEUE = ROOT / "posts" / "queue"
 DONE = ROOT / "posts" / "published"
@@ -30,6 +33,7 @@ API = "https://graph.instagram.com/v23.0"
 TOKEN = os.environ.get("IG_ACCESS_TOKEN", "")
 RAW_BASE = os.environ.get("RAW_BASE", "").rstrip("/")
 DRY = os.environ.get("DRY_RUN") == "1"
+POSTIZ = bool(os.environ.get("POSTIZ_API_KEY"))
 
 
 class ApiError(Exception):
@@ -76,6 +80,13 @@ def validate(folder, post):
         errs.append("geen afbeeldingen (01.jpg ...) gevonden; draai scripts/render.py")
     if len(imgs) > 10:
         errs.append("meer dan 10 afbeeldingen in een carrousel")
+    if "tiktok" in post:
+        if not post["tiktok"].get("caption"):
+            errs.append("tiktok.caption ontbreekt")
+        elif len(post["tiktok"]["caption"]) > 2200:
+            errs.append("tiktok.caption langer dan 2200 tekens")
+        if not (folder / "tiktok.mp4").exists():
+            errs.append("tiktok.mp4 ontbreekt; draai scripts/tiktok.py")
     return imgs, errs
 
 
@@ -103,6 +114,10 @@ def main():
     user_id = me.get("user_id") or me["id"]
     print(f"Ingelogd als @{me.get('username')}")
     if "--check" in sys.argv:
+        if POSTIZ:
+            tiktok.check()
+        else:
+            print("POSTIZ_API_KEY niet gezet: TikTok staat uit.")
         return
 
     if not RAW_BASE:
@@ -125,7 +140,8 @@ def main():
             failed = True
             continue
         if DRY:
-            print(f"[dry-run] zou {folder.name} plaatsen ({len(imgs)} afbeelding(en))")
+            extra = " + TikTok" if "tiktok" in post and POSTIZ else ""
+            print(f"[dry-run] zou {folder.name} plaatsen ({len(imgs)} afbeelding(en)){extra}")
             continue
         try:
             media_id = publish(folder, post, imgs, user_id)
@@ -135,6 +151,17 @@ def main():
             continue
         post["published_at"] = now.isoformat()
         post["media_id"] = media_id
+        if "tiktok" in post:
+            if not POSTIZ:
+                print(f"- {folder.name}: TikTok overgeslagen (POSTIZ_API_KEY ontbreekt)")
+            else:
+                try:  # Instagram is already live: a TikTok failure is reported, never retried on Instagram
+                    post["tiktok_post_id"] = tiktok.publish_tiktok(folder, post)
+                    print(f"+ {folder.name}: naar TikTok gestuurd")
+                except Exception as e:
+                    post["tiktok_error"] = str(e)[:500]
+                    print(f"! {folder.name}: TikTok mislukt: {e}")
+                    failed = True
         (folder / "post.json").write_text(json.dumps(post, indent=2, ensure_ascii=False), encoding="utf-8")
         DONE.mkdir(parents=True, exist_ok=True)
         shutil.move(str(folder), str(DONE / folder.name))
