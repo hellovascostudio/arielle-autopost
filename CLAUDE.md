@@ -6,8 +6,10 @@ Automated Instagram posting for @iamariellenova. Read `brand/arielle.md` before 
 - Each post is a folder `posts/queue/YYYY-MM-DD-slug/` with a `post.json` (see `examples/`).
 - `scripts/render.py` turns the slides in post.json into `01.jpg, 02.jpg …` (1080x1350).
 - `scripts/tiktok.py` turns those slides into `tiktok.mp4` (1080x1920) for every post with a `tiktok` block.
-  The same hourly run sends it to TikTok via Postiz (secret `POSTIZ_API_KEY`), always with the AI-generated label.
-- `.github/workflows/publish.yml` runs hourly and publishes every post whose `publish_at` has passed,
+  For now Shelley uploads these to TikTok herself (TikTok Studio, with the AI-generated content label on).
+  Automatic TikTok posting via Postiz is built in (`scripts/tiktok.py`, `publish.py`) but off: it needs a paid Postiz
+  account, the secret `POSTIZ_API_KEY` and that secret passed to the Publish step in `publish.yml`.
+- `.github/workflows/publish.yml` checks every 10 minutes (a scheduled run loops for ~5.5 h) and publishes every post whose `publish_at` has passed,
   then moves it to `posts/published/`. Never edit or delete anything in `posts/published/`.
 - Only content merged into `main` gets published. New weeks always go through a pull request so
   Shelley can approve them first.
@@ -29,5 +31,7 @@ Automated Instagram posting for @iamariellenova. Read `brand/arielle.md` before 
    `python scripts/tiktok.py --all`, look at every rendered image (text must fit, no overlaps), commit and push.
 5. Open a PR titled `Week WW: <short theme>` whose description shows, per post: day/time, the caption, the TikTok caption, and the images as
    `![](https://raw.githubusercontent.com/hellovascostudio/arielle-autopost/<branch>/posts/queue/<folder>/01.jpg)`.
+   Per post also add a TikTok download link:
+   `[TikTok-video downloaden](https://github.com/hellovascostudio/arielle-autopost/raw/<branch>/posts/queue/<folder>/tiktok.mp4)`.
    End with: "Merge om deze week in te plannen. Wil je iets anders? Reageer hier of in Claude."
 6. Never merge it yourself and never publish directly.
