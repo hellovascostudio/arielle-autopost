@@ -1,0 +1,46 @@
+{
+  "publish_at": "2026-11-03T18:30:00+01:00",
+  "pillar": "AI",
+  "caption": "AI won't plan your year-end for you. But it's a very good thinking partner.\n\nThese are the four prompts I use to turn a messy to-do list into a calm plan for the last weeks of the year. Copy them into any AI assistant and make them yours.\n\nSave this and try one tonight. ☕\n\n#aitools #aiprompts #productivity #solopreneur #worksmarter #aiforbusiness #planning\n\n✦ AI-generated creator",
+  "slides": [
+    {
+      "type": "photo",
+      "image": "assets/photos/laptop-blazer-window.jpg",
+      "title": "4 AI prompts for a calm end of the year"
+    },
+    {
+      "type": "text",
+      "number": "01",
+      "heading": "The brain-dump",
+      "body": "\"Here's everything on my mind. Group it into themes and tell me what can wait until January.\""
+    },
+    {
+      "type": "text",
+      "number": "02",
+      "heading": "The reality check",
+      "body": "\"I have eight weeks and about 20 focused hours a week. Which of these goals fit? Be honest.\""
+    },
+    {
+      "type": "text",
+      "number": "03",
+      "heading": "The weekly plan",
+      "body": "\"Turn my top three goals into one small, concrete step for each week until December 31.\""
+    },
+    {
+      "type": "text",
+      "number": "04",
+      "heading": "The year in review",
+      "body": "\"Ask me ten questions to reflect on this year: what worked, what drained me, what I want more of.\""
+    },
+    {
+      "type": "quote",
+      "quote": "Let AI do the sorting, so you can do the deciding.",
+      "author": "Arielle"
+    },
+    {
+      "type": "cta",
+      "title": "Save for your next planning session",
+      "body": "Which prompt are you trying first?"
+    }
+  ]
+}
