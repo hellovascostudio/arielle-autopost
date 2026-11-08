@@ -1,0 +1,40 @@
+{
+  "publish_at": "2026-11-10T18:30:00+01:00",
+  "pillar": "AI",
+  "caption": "I used to start the gift season in a panic. Now I start with three prompts. ☕\n\nOne for the list and budget, one for ideas that aren't just more stuff, and one for a timeline so nothing lands in the last week. Any AI assistant you already use will do.\n\nSave this for your gift list, and tell me: are you an early or a last-minute gifter?\n\n#aiprompts #aitools #giftideas #holidayplanning #productivity #womeninbusiness\n\n✦ AI-generated creator",
+  "slides": [
+    {
+      "type": "photo",
+      "image": "assets/photos/cafe-laptop-coffee.jpg",
+      "title": "3 AI prompts for a calmer gift season"
+    },
+    {
+      "type": "text",
+      "number": "01",
+      "heading": "The list",
+      "body": "“Help me list everyone I want to give something to this year, with a budget per person that adds up to my total.”"
+    },
+    {
+      "type": "text",
+      "number": "02",
+      "heading": "The ideas",
+      "body": "“Here are three things she loves. Give me five gift ideas under my budget that aren't just more stuff.”"
+    },
+    {
+      "type": "text",
+      "number": "03",
+      "heading": "The timeline",
+      "body": "“Turn my list into a small weekly plan until mid-December, so nothing is left for the last few days.”"
+    },
+    {
+      "type": "quote",
+      "quote": "Thoughtful doesn't have to mean frantic.",
+      "author": "Arielle"
+    },
+    {
+      "type": "cta",
+      "title": "Save this for your gift list",
+      "body": "Follow for calm, practical ways to use AI."
+    }
+  ]
+}
